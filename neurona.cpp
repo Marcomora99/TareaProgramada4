@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include <time.h>
 
-Neurona::Neurona(int nx)
+Neurona::Neurona(int nx, bool esUltima)
 {
     x = nx;
     float floatAleatorio, aleatorio;

@@ -11,7 +11,7 @@ class Red
     vector< Capa > listaCapas;
     vector< vector< int > > matrizConexiones;
 public:
-    Red(int nCapas, int nNeuronas);
+    Red(int nCapas, vector<int> nNeuronas);
     ~Red();
     void AgregarCapa(int cNeuronas);
     //Categoria Clasificar ???
