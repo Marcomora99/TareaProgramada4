@@ -6,8 +6,9 @@
 
 Conexion::Conexion(Neurona nNeurona, float nPeso)
 {
-    int enteroAleatorio;
     srand (time(NULL));
-    enteroAleatorio = rand()%100;
-    peso = enteroAleatorio;
+    float floatAleatorio, aleatorio;
+    aleatorio = ( float )rand() / RAND_MAX;
+    floatAleatorio = 0 + aleatorio * (1 - 0);
+    peso = floatAleatorio;
 }
