@@ -8,7 +8,7 @@ class Conexion
     float peso;
     Neurona* receptora;
 public:
-    Conexion(Neurona nNeurona, float nPeso);
+    Conexion(Neurona* nNeuronaR, float nPeso);
 };
 
 #endif // CONEXION_H
