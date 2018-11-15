@@ -1,7 +1,7 @@
 #include "capa.h"
 #include <iostream>
 
-Capa::Capa(int nCntNeuronas)
+Capa::Capa(int nCntNeuronas, bool esUltima)
 {
     cntNeuronas = nCntNeuronas;
     for(int i = 0; i < cntNeuronas; i++){
