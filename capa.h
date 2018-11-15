@@ -10,7 +10,7 @@ class Capa
     vector< Neurona > listaNeuronas;
 public:
     int cntNeuronas;//Para visualizar que funcione
-    Capa(int nCntNeuronas);
+    Capa(int nCntNeuronas, bool esUltima);
     void AgregarNeurona(Neurona nNeurona){};
     void ImprimirLista();//Solo visualizar
 };
