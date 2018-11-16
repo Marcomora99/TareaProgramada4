@@ -7,10 +7,11 @@ using namespace std;
 
 class Red
 {
+public:
     int capas;
     vector <int> neuronas;
     vector< Capa > listaCapas;
-public:
+//public:
     Red(int cntCapas, vector<int> nNeuronas);
     //void AgregarCapa(int cntNeuronas); CREO QUE NO SE VA A OCUPAR
 };

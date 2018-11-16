@@ -7,11 +7,11 @@ using namespace std;
 
 class Neurona
 {
+public:
     float umbral;
     float carga;
-public:
+//public:
     vector< Conexion > listaConexiones;
-public:
     Neurona(bool esUltima);
     void AgregarConexion(Neurona* nNeurona, float peso);
     //void AplicarCarga(int nCarga){;} NO ENTIENDO BIEN COMO FUNCIONA

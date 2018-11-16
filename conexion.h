@@ -5,9 +5,10 @@ class Neurona;
 
 class Conexion
 {
+public:
     float peso;
     Neurona* neuronaReceptora;
-public:
+//public:
     Conexion(Neurona* nNeuronaR, float nPeso);
 };
 

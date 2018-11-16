@@ -5,7 +5,6 @@
 Neurona::Neurona(bool esUltima)
 {
     float floatAleatorio, aleatorio;
-    srand( time( NULL ) );
     for( int i = 0; i < 2; i++ ){
         aleatorio = ( float )rand() / RAND_MAX;
         floatAleatorio = 0 + aleatorio * (1 - 0);
