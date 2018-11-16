@@ -15,7 +15,7 @@ public:
     Neurona(int nx, bool esUltima);
     float GetCarga(){return carga;}//Visualizar
     float GetUmbral(){return umbral;}//Visualizar
-    void AgregarConexion(Neurona* nNeurona, float peso);
+    void AgregarConexion(Neurona* nNeurona, float peso){};
     void AplicarCarga(int nCarga){};
 };
 
