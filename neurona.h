@@ -9,14 +9,12 @@ class Neurona
 {
     float umbral;
     float carga;
+public:
     vector< Conexion > listaConexiones;
 public:
-    int x;
-    Neurona(int nx, bool esUltima);
-    float GetCarga(){return carga;}//Visualizar
-    float GetUmbral(){return umbral;}//Visualizar
-    void AgregarConexion(Neurona* nNeurona, float peso){};
-    void AplicarCarga(int nCarga){};
+    Neurona(bool esUltima);
+    void AgregarConexion(Neurona* nNeurona, float peso);
+    //void AplicarCarga(int nCarga){;} NO ENTIENDO BIEN COMO FUNCIONA
 };
 
 #endif // NEURONA_H

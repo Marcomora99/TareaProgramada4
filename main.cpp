@@ -1,8 +1,7 @@
 #include "mainwindow.h"
 #include <QApplication>
-#include <iostream>
+#include <iostream> // Debug
 #include "red.h"
-
 using namespace std;
 
 int main(int argc, char *argv[])

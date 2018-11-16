@@ -7,12 +7,10 @@ using namespace std;
 
 class Capa
 {
-public:
     vector< Neurona > listaNeuronas;
-    int cntNeuronas;//Para visualizar que funcione
-    Capa(int nCntNeuronas, bool esUltima);
-    void AgregarNeurona(Neurona nNeurona){};
-    void ImprimirLista();//Solo visualizar
+public:
+    Capa(int cntNeuronas, bool esUltima);
+    //void AgregarNeurona(Neurona n){}; CREO QUE NO SE VA A OCUPAR
 };
 
 #endif // CAPA_H

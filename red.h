@@ -7,17 +7,12 @@ using namespace std;
 
 class Red
 {
-    int capas, neuronas;
+    int capas;
+    vector <int> neuronas;
     vector< Capa > listaCapas;
-    vector< vector< int > > matrizConexiones;
 public:
-    Red(int nCapas, vector<int> nNeuronas);
-    ~Red();
-    void AgregarCapa(int cNeuronas);
-    //Categoria Clasificar ???
-    //void Entrenar(); ???
-    void ImprimirMatriz();//Solo visualizar
-    void ImprimirListaCapas();//Solo visualizar
+    Red(int cntCapas, vector<int> nNeuronas);
+    //void AgregarCapa(int cntNeuronas); CREO QUE NO SE VA A OCUPAR
 };
 
 #endif // RED_H

@@ -2,9 +2,8 @@
 #include <cstdlib>
 #include <time.h>
 
-Neurona::Neurona(int nx, bool esUltima)
+Neurona::Neurona(bool esUltima)
 {
-    x = nx;
     float floatAleatorio, aleatorio;
     srand( time( NULL ) );
     for( int i = 0; i < 2; i++ ){
@@ -16,4 +15,9 @@ Neurona::Neurona(int nx, bool esUltima)
             carga = floatAleatorio;
         }
     }
+}
+
+void Neurona::AgregarConexion(Neurona* nNeurona, float peso)
+{
+    listaConexiones.push_back(Conexion(nNeurona, peso));
 }
