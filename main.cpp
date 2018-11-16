@@ -9,6 +9,6 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     MainWindow w;
     w.show();
-    Red* r = new Red(4 , {2,2,2,2});
+    Red* r = new Red(4 , {1,2,3,4});
     return a.exec();
 }
