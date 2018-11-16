@@ -7,8 +7,8 @@ using namespace std;
 
 class Capa
 {
-    vector< Neurona > listaNeuronas;
 public:
+    vector< Neurona > listaNeuronas;
     Capa(int cntNeuronas, bool esUltima);
     vector < Neurona >* GetListaNeuronas(){return &listaNeuronas;}
     //void AgregarNeurona(Neurona n){}; CREO QUE NO SE VA A OCUPAR
