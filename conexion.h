@@ -8,7 +8,7 @@ class Conexion
 public:
     float peso;
     Neurona* neuronaReceptora;
-//public:
+//public: por el momento para poder visualizar la red
     Conexion(Neurona* nNeuronaR, float nPeso);
 };
 

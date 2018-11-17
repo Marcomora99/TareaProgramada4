@@ -10,8 +10,8 @@ class Neurona
 public:
     float umbral;
     float carga;
-//public:
     vector< Conexion > listaConexiones;
+//public: por el momento para poder visualizar la red
     Neurona();
     void AgregarConexion(Neurona* nNeurona, float peso);
     //void AplicarCarga(int nCarga){;} NO ENTIENDO BIEN COMO FUNCIONA

@@ -4,6 +4,7 @@
 
 Conexion::Conexion(Neurona* nNeuronaR, float nPeso)
 {
+    //Asigna valores
     neuronaReceptora = nNeuronaR;
     peso = nPeso;
 }

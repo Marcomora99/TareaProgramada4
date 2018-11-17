@@ -13,7 +13,7 @@ Red::Red(int cntCapas, vector<int> nNeuronas)
         for(int i = 0; i < capas; i++){
             listaCapas.push_back(Capa(neuronas[i]));
         }
-        //Se hacen las conexiones de las neuronas y se crea un float aleatorio que seria el peso de cada conexion 
+        //Se hacen las conexiones de las neuronas y se crea un float aleatorio que seria el peso de cada conexion
         float floatAleatorio, aleatorio;
         srand( time( NULL ) );
         for(int i = 0; i < capas; i++){
