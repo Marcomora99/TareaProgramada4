@@ -12,7 +12,7 @@ public:
     float carga;
 //public:
     vector< Conexion > listaConexiones;
-    Neurona(bool esUltima);
+    Neurona();
     void AgregarConexion(Neurona* nNeurona, float peso);
     //void AplicarCarga(int nCarga){;} NO ENTIENDO BIEN COMO FUNCIONA
 };

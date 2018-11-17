@@ -9,11 +9,7 @@ Red::Red(int cntCapas, vector<int> nNeuronas)
         capas = cntCapas;
         neuronas = nNeuronas;
         for(int i = 0; i < capas; i++){
-            if(i == capas - 1){
-                listaCapas.push_back(Capa(neuronas[i], 1));
-            }else{
-                listaCapas.push_back(Capa(neuronas[i], 0));
-            }
+            listaCapas.push_back(Capa(neuronas[i]));
         }
         float floatAleatorio, aleatorio;
         srand( time( NULL ) );

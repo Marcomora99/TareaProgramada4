@@ -9,7 +9,7 @@ class Capa
 {
 public:
     vector< Neurona > listaNeuronas;
-    Capa(int cntNeuronas, bool esUltima);
+    Capa(int cntNeuronas);
     //void AgregarNeurona(Neurona n){}; CREO QUE NO SE VA A OCUPAR
 };
 
