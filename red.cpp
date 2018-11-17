@@ -5,12 +5,15 @@ using namespace std;
 
 Red::Red(int cntCapas, vector<int> nNeuronas)
 {
+    //Verifica que los datos de entrada tengan sentido
     if(cntCapas == nNeuronas.size()){
+        //Asigna valores y llena la 'Lista de Capas' con la cantidad asignada y le dice a cada capa cuantas neuronas tiene
         capas = cntCapas;
         neuronas = nNeuronas;
         for(int i = 0; i < capas; i++){
             listaCapas.push_back(Capa(neuronas[i]));
         }
+        //Se hacen las conexiones de las neuronas y se crea un float aleatorio que seria el peso de cada conexion 
         float floatAleatorio, aleatorio;
         srand( time( NULL ) );
         for(int i = 0; i < capas; i++){
