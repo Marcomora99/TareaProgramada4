@@ -29,3 +29,11 @@ Red::Red(int cntCapas, vector<int> nNeuronas)
         }
     }
 }
+
+void Red::pensar() {
+    for(int i = 0; i < capas-1; i++){
+        for(int j = 0; j < neuronas[i]; j++){
+            listaCapas[i].listaNeuronas[j].AplicarCarga();
+        }
+    }
+}
