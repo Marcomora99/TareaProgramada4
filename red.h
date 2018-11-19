@@ -15,6 +15,7 @@ public:
     Red(int cntCapas, vector<int> nNeuronas);
     vector< Capa > GetListaCapas(){return listaCapas;}
     //void AgregarCapa(int cntNeuronas); CREO QUE NO SE VA A OCUPAR
+    void pensar();
 };
 
 #endif // RED_H
