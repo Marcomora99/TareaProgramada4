@@ -13,7 +13,7 @@
     .cpp
     Laberinto::Laberinto(ifstream& archivo){       
     int flujoSalida;
-    char charFinLinea = ' ';  
+    char charFinLinea = ' ';  //espacio
     
     //Linea #1
     archivo >> flujoSalida;
