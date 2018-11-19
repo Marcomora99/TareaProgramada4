@@ -8,13 +8,15 @@ using namespace std;
 class Neurona
 {
 public:
-    float umbral;
-    float carga;
+    float carga, umbral;
     vector< Conexion > listaConexiones;
 //public: por el momento para poder visualizar la red
     Neurona();
+    float GetCarga(){return carga;}
+    float GetUmbral(){return umbral;}
+    vector< Conexion > GetListaConexiones(){return listaConexiones;}
     void AgregarConexion(Neurona* nNeurona, float peso);
-    //void AplicarCarga(int nCarga){;} NO ENTIENDO BIEN COMO FUNCIONA
+    void AplicarCarga(float nCarga, float nPeso);
 };
 
 #endif // NEURONA_H

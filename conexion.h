@@ -10,6 +10,8 @@ public:
     Neurona* neuronaReceptora;
 //public: por el momento para poder visualizar la red
     Conexion(Neurona* nNeuronaR, float nPeso);
+    float GetPeso(){return peso;}
+    Neurona* GetNeurona(){return neuronaReceptora;}
 };
 
 #endif // CONEXION_H

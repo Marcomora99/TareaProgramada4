@@ -12,6 +12,7 @@ public:
     //TAL VEZ CREAR UN METODO
     vector< Neurona > listaNeuronas;
     Capa(int cntNeuronas);
+    vector< Neurona > GetListaNeuronas(){return listaNeuronas;}
     //void AgregarNeurona(Neurona n){}; CREO QUE NO SE VA A OCUPAR
 };
 

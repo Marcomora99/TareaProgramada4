@@ -22,3 +22,7 @@ void Neurona::AgregarConexion(Neurona* nNeurona, float peso)
     //Mete en la 'Lista de Conexiones' una neurona (receptora) y un peso indicado.
     listaConexiones.push_back(Conexion(nNeurona, peso));
 }
+
+void Neurona::AplicarCarga(float nCarga, float nPeso){
+
+}
