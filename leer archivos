@@ -1,5 +1,50 @@
+    main o red
     ifstream archivo("laberintop.txt", ios::in);
     if(!archivo){
         cerr << "No se pudo abrir el archivo de entrada" << endl;
         return 1;
     }
+    Laberinto laberinto(archivo);
+    
+    conatructor
+     .h
+    Laberinto(ifstream& archivo);
+    
+    .cpp
+    Laberinto::Laberinto(ifstream& archivo){       
+    int flujoSalida;
+    char charFinLinea = ' ';  
+    
+    //Linea #1
+    archivo >> flujoSalida;
+    cntVrts = flujoSalida;  
+    arregloAdys = new Adyacencia[cntVrts * (cntVrts + 1 ) / 2];
+    arregloVrts = new Vertice[cntVrts];
+    int contador = 0;
+    idVrtInicial = 0;
+    idVrtFinal = cntVrts - 1;
+    
+    //Linea #2   
+    archivo >> flujoSalida; 
+    while(!archivo.eof()){
+        ListaOrdenada lista;
+         
+        while(!archivo.eof() && charFinLinea != 10){ 
+            lista.agregar(flujoSalida);
+            archivo >> flujoSalida;
+            archivo.get(); 
+            charFinLinea = archivo.peek(); 
+        }
+        
+        if(!archivo.eof())
+            lista.agregar(flujoSalida);
+        
+        archivo >> flujoSalida; 
+        archivo.get(); 
+        charFinLinea = archivo.peek();        
+        arregloVrts[contador].lstAdy = lista;
+        contador++;
+    }
+    if(archivo.eof())
+        arregloVrts[contador-1].lstAdy.agregar(flujoSalida);
+}
