@@ -6,7 +6,7 @@
     }
     Laberinto laberinto(archivo);
     
-    conatructor
+    constructor
      .h
     Laberinto(ifstream& archivo);
     
@@ -17,12 +17,6 @@
     
     //Linea #1
     archivo >> flujoSalida;
-    cntVrts = flujoSalida;  
-    arregloAdys = new Adyacencia[cntVrts * (cntVrts + 1 ) / 2];
-    arregloVrts = new Vertice[cntVrts];
-    int contador = 0;
-    idVrtInicial = 0;
-    idVrtFinal = cntVrts - 1;
     
     //Linea #2   
     archivo >> flujoSalida; 
@@ -42,9 +36,7 @@
         archivo >> flujoSalida; 
         archivo.get(); 
         charFinLinea = archivo.peek();        
-        arregloVrts[contador].lstAdy = lista;
-        contador++;
     }
     if(archivo.eof())
-        arregloVrts[contador-1].lstAdy.agregar(flujoSalida);
+        //termino;
 }
