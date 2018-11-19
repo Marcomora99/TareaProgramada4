@@ -1,0 +1,5 @@
+    ifstream archivo("laberintop.txt", ios::in);
+    if(!archivo){
+        cerr << "No se pudo abrir el archivo de entrada" << endl;
+        return 1;
+    }
