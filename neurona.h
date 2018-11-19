@@ -16,7 +16,9 @@ public:
     float GetUmbral(){return umbral;}
     vector< Conexion > GetListaConexiones(){return listaConexiones;}
     void AgregarConexion(Neurona* nNeurona, float peso);
-    void AplicarCarga(float nCarga, float nPeso);
+    void AplicarCarga();
+    float getPesoDeConexion(int indice);
+    void setCarga(float c);
 };
 
 #endif // NEURONA_H

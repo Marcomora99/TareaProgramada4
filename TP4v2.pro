@@ -30,14 +30,16 @@ SOURCES += \
     red.cpp \
     capa.cpp \
     neurona.cpp \
-    conexion.cpp
+    conexion.cpp \
+    codificadorletras.cpp
 
 HEADERS += \
         mainwindow.h \
     red.h \
     capa.h \
     neurona.h \
-    conexion.h
+    conexion.h \
+    codificadorletras.h
 
 FORMS += \
         mainwindow.ui

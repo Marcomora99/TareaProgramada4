@@ -23,6 +23,21 @@ void Neurona::AgregarConexion(Neurona* nNeurona, float peso)
     listaConexiones.push_back(Conexion(nNeurona, peso));
 }
 
-void Neurona::AplicarCarga(float nCarga, float nPeso){
+void Neurona::AplicarCarga(){
+    if(carga >= umbral) {
+        for(int i = 0; i < listaConexiones.size();i++){
+            listaConexiones[i].neuronaReceptora->setCarga((carga*listaConexiones[i].neuronaReceptora->GetCarga())/listaConexiones[i].GetPeso());
+        }
+        ;
+    }
+}
 
+float Neurona::getPesoDeConexion(int indice){
+    if(listaConexiones.size() > 0) {
+        return listaConexiones[indice].GetPeso();
+    }
+}
+
+void Neurona::setCarga(float c){
+    carga=c;
 }
