@@ -2,6 +2,7 @@
 #include <QApplication>
 #include <iostream> // Debug
 #include "red.h"
+#include "codificadorletras.h"
 using namespace std;
 
 int main(int argc, char *argv[])
@@ -9,7 +10,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     MainWindow w;
     w.show();
-    Red* r = new Red(4 , {1,2,3,4});
+    /*Red* r = new Red(4 , {1,2,3,4});
     for(int i = 0; i < r->capas; i++){
         for(int j = 0; j < r->neuronas[i]; j++){
             cout << r->listaCapas[i].listaNeuronas[j].carga << "->" << endl;
@@ -33,7 +34,10 @@ int main(int argc, char *argv[])
                 }
             }
         }
-    }
+    }*/
+
+    codificadorLetras c;
+    c.analizarArchivo("DireccionDelArchivo.txt");
 
     return a.exec();
 }
