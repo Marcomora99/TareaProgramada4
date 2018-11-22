@@ -35,6 +35,12 @@ float codificadorLetras::analizarArchivo(string nombreArchivo){
     QStringList arregloLetraSinRepetidas = arregloLetra; // Crea otra lista con el objetivo de quitarle las palabras repetidas
     
     arregloLetraSinRepetidas.removeDuplicates(); // Quita de la lista las palabras repetidas para tener el total de las palabras que aparecen en la letra
+
+    for(int i = 0 ; i < arregloLetraSinRepetidas.size() ; i++){
+        if(arregloLetraSinRepetidas.at(i).size() <= 2){
+            arregloLetraSinRepetidas.removeAt(i);
+        }
+    }
     
     texto_qstr = arregloLetra.join(" ");  // Une la lista de todas las palabras en un solo QString para imprimirlo
     
@@ -46,14 +52,51 @@ float codificadorLetras::analizarArchivo(string nombreArchivo){
     
     cout << texto_qstr.toStdString();
 
+    cout << endl << endl;
+
     //Analisis de las mas repetidas
-    /*for(int i=0 ; i < arregloLetraSinRepetidas.size(); i++){
+    int repeticiones [arregloLetraSinRepetidas.size()] = {0};
+    for(int i=0 ; i < arregloLetraSinRepetidas.size(); i++){
         for(int j = 0; j < arregloLetra.size();j++){
             if(arregloLetraSinRepetidas.at(i)==arregloLetra.at(j)){
-
+                repeticiones[i]++;
             }
         }
-    }*/
+    }
+
+    for(int i = 0 ; i < arregloLetraSinRepetidas.size();i++) {
+        cout << arregloLetraSinRepetidas.at(i).toStdString() << " " << repeticiones[i] << " ; ";
+    }
+
+    int indicePalabraMasRepetida =0;
+    int numeroVecesRepetidas=0;
+
+    for (int i = 0 ; i < arregloLetraSinRepetidas.size();i++){
+        if(repeticiones[i]> numeroVecesRepetidas){
+            numeroVecesRepetidas = repeticiones[i];
+            indicePalabraMasRepetida = i;
+        }
+    }
+
+    string palabraMasRepetida = arregloLetraSinRepetidas.at(indicePalabraMasRepetida).toStdString();
+
+    cout << endl << endl;
+
+    cout << palabraMasRepetida;
+
+    QString palabraMasGrande_Qstr = "";
+
+    for (int i = 0 ; i < arregloLetraSinRepetidas.size();i++){
+        if(palabraMasGrande_Qstr.size() < arregloLetraSinRepetidas.at(i).size()){
+            palabraMasGrande_Qstr = arregloLetraSinRepetidas.at(i);
+        }
+    }
+
+    string palabraMasGrande = palabraMasGrande_Qstr.toStdString();
+
+    cout << endl << endl;
+
+    cout << palabraMasGrande;
 
     return 0;
 }
