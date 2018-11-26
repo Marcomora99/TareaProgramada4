@@ -38,3 +38,7 @@ void Red::pensar(float dato) {
         }
     }
 }
+
+void Red::retropropagacion(float error){
+
+}

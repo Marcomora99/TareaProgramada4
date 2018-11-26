@@ -5,11 +5,10 @@ codificadorLetras::codificadorLetras()
 
 }
 
-float codificadorLetras::analizarArchivo(string nombreArchivo){
-    fstream inFile;
+float codificadorLetras::analizarArchivo(string letra){
+    /*fstream inFile;
     string linea;
     stringstream texto;
-    string texto_str;
     inFile.open(nombreArchivo);
 
     if (!inFile) {
@@ -20,83 +19,106 @@ float codificadorLetras::analizarArchivo(string nombreArchivo){
         }
     }
 
-    inFile.close();
-    
-    texto_str = texto.str(); //Transforma el stringstream a stream
-    
-    transform(texto_str.begin(), texto_str.end(), texto_str.begin(), ::tolower); // Hace todas las letras minusculas
-    
-    QString texto_qstr = QString::fromStdString(texto_str); // Crea un QString con la letra para poder trabajarla de una mejor manera
-    
-    texto_qstr = quitarSignosPuntuacion(texto_qstr); //Quita signos de puntuacion para no contar mas palabras de la cuenta
-    
-    QStringList arregloLetra = texto_qstr.split(" "); // Crea una lista con cada palabra de la cancion
-    
-    QStringList arregloLetraSinRepetidas = arregloLetra; // Crea otra lista con el objetivo de quitarle las palabras repetidas
-    
-    arregloLetraSinRepetidas.removeDuplicates(); // Quita de la lista las palabras repetidas para tener el total de las palabras que aparecen en la letra
+    inFile.close();*/
+    if(letra != ""){
 
-    for(int i = 0 ; i < arregloLetraSinRepetidas.size() ; i++){
-        if(arregloLetraSinRepetidas.at(i).size() <= 2){
-            arregloLetraSinRepetidas.removeAt(i);
-        }
-    }
-    
-    texto_qstr = arregloLetra.join(" ");  // Une la lista de todas las palabras en un solo QString para imprimirlo
-    
-    cout << texto_qstr.toStdString();
-    
-    cout << endl << endl;
-    
-    texto_qstr = arregloLetraSinRepetidas.join(" "); // Une la lista de todas las palabras sin repeticion en un solo QString para imprimirlo
-    
-    cout << texto_qstr.toStdString();
+        QString texto = QString::fromStdString(letra);
 
-    cout << endl << endl;
+        texto.replace("\n"," ");
 
-    //Analisis de las mas repetidas
-    int repeticiones [arregloLetraSinRepetidas.size()] = {0};
-    for(int i=0 ; i < arregloLetraSinRepetidas.size(); i++){
-        for(int j = 0; j < arregloLetra.size();j++){
-            if(arregloLetraSinRepetidas.at(i)==arregloLetra.at(j)){
-                repeticiones[i]++;
+        string texto_str = texto.toStdString();
+
+        transform(texto_str.begin(), texto_str.end(), texto_str.begin(), ::tolower); // Hace todas las letras minusculas
+
+        QString texto_qstr = QString::fromStdString(texto_str); // Crea un QString con la letra para poder trabajarla de una mejor manera
+
+        texto_qstr = quitarSignosPuntuacion(texto_qstr); //Quita signos de puntuacion para no contar mas palabras de la cuenta
+
+        QStringList arregloLetra = texto_qstr.split(" "); // Crea una lista con cada palabra de la cancion
+
+        QStringList arregloLetraSinRepetidas = arregloLetra; // Crea otra lista con el objetivo de quitarle las palabras repetidas
+
+        arregloLetraSinRepetidas.removeDuplicates(); // Quita de la lista las palabras repetidas para tener el total de las palabras que aparecen en la letra
+
+        for(int i = 0 ; i < arregloLetraSinRepetidas.size() ; i++){
+            if(arregloLetraSinRepetidas.at(i).size() <= 2){
+                arregloLetraSinRepetidas.removeAt(i);
             }
         }
-    }
 
-    for(int i = 0 ; i < arregloLetraSinRepetidas.size();i++) {
-        cout << arregloLetraSinRepetidas.at(i).toStdString() << " " << repeticiones[i] << " ; ";
-    }
 
-    int indicePalabraMasRepetida =0;
-    int numeroVecesRepetidas=0;
+        //Analisis de las mas repetidas
+        //int repeticiones [arregloLetraSinRepetidas.size()] = {0};
+        vector <int> repeticiones;
 
-    for (int i = 0 ; i < arregloLetraSinRepetidas.size();i++){
-        if(repeticiones[i]> numeroVecesRepetidas){
-            numeroVecesRepetidas = repeticiones[i];
-            indicePalabraMasRepetida = i;
+        for(int i = 0 ; i < arregloLetraSinRepetidas.size() ; i++){
+            repeticiones.push_back(0);
         }
-    }
 
-    string palabraMasRepetida = arregloLetraSinRepetidas.at(indicePalabraMasRepetida).toStdString();
-
-    cout << endl << endl;
-
-    cout << palabraMasRepetida;
-
-    QString palabraMasGrande_Qstr = "";
-
-    for (int i = 0 ; i < arregloLetraSinRepetidas.size();i++){
-        if(palabraMasGrande_Qstr.size() < arregloLetraSinRepetidas.at(i).size()){
-            palabraMasGrande_Qstr = arregloLetraSinRepetidas.at(i);
+        for(int i=0 ; i < arregloLetraSinRepetidas.size(); i++){
+            for(int j = 0; j < arregloLetra.size();j++){
+                if(arregloLetraSinRepetidas.at(i)==arregloLetra.at(j)){
+                    repeticiones[i]++;
+                }
+            }
         }
+
+        vector <string> MasRepetidas10;
+
+
+        for(int k = 0; k < 10 ; k++){
+            int indicePalabraMasRepetida =0;
+            int numeroVecesRepetidas=0;
+
+            for (int i = 0 ; i < arregloLetraSinRepetidas.size();i++){
+                if(repeticiones[i]> numeroVecesRepetidas){
+                    numeroVecesRepetidas = repeticiones[i];
+                    indicePalabraMasRepetida = i;
+                }
+            }
+
+            repeticiones[indicePalabraMasRepetida] = 0;
+            string palabraMasRepetida = arregloLetraSinRepetidas.at(indicePalabraMasRepetida).toStdString();
+            MasRepetidas10.push_back(palabraMasRepetida);
+        }
+
+        vector<string> MasGrandes10;
+
+        for(int k = 0; k < 10 ; k++){
+            QString palabraMasGrande_Qstr = "";
+            for (int i = 0 ; i < arregloLetraSinRepetidas.size();i++){
+                if(palabraMasGrande_Qstr.size() < arregloLetraSinRepetidas.at(i).size()){
+                    palabraMasGrande_Qstr = arregloLetraSinRepetidas.at(i);
+                    arregloLetraSinRepetidas.removeAt(i);
+                }
+            }
+
+            string palabraMasGrande = palabraMasGrande_Qstr.toStdString();
+            MasGrandes10.push_back(palabraMasGrande);
+
+        }
+
+        vector <string> MasRelevantes10; // Palabras que se van a codificar para identificar la cancion, 5 mas respetidas y 5 mas grandes
+
+        for(int i = 0; i < 5 ; i++){
+            MasRelevantes10.push_back(MasRepetidas10[i]);
+            MasRelevantes10.push_back(MasGrandes10[i]);
+        }
+
+        int cancionEntera = 0;
+
+
+        for(int i = 0; i < MasRelevantes10.size() ; i++){
+            for(int j = 0; j < MasRelevantes10[i].size() ; j++){
+                cancionEntera += int(MasRelevantes10[i].at(j));
+            }
+        }
+
+        QString cancionCodificada_qstr = "0."+ QString::number(cancionEntera);
+        float cancionCodificada = cancionCodificada_qstr.toFloat();
+
+        return cancionCodificada;
     }
-
-    string palabraMasGrande = palabraMasGrande_Qstr.toStdString();
-
-    cout << endl << endl;
-
-    cout << palabraMasGrande;
 
     return 0;
 }

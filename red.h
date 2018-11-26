@@ -16,6 +16,7 @@ public:
     vector< Capa > GetListaCapas(){return listaCapas;}
     //void AgregarCapa(int cntNeuronas); CREO QUE NO SE VA A OCUPAR
     void pensar(float dato);
+    void retropropagacion(float error);
 };
 
 #endif // RED_H
