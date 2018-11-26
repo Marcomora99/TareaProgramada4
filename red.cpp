@@ -30,11 +30,12 @@ Red::Red(int cntCapas, vector<int> nNeuronas)
     }
 }
 
-void Red::pensar(float dato) {
-    listaCapas[0].SetPrimera(dato);
-    for(int i = 0; i < capas-1; i++){
-        for(int j = 0; j < neuronas[i]; j++){
-            listaCapas[i].listaNeuronas[j].AplicarCarga();
+void Red::pensar(float dato, Red original) {
+    Red redCopia = original;
+    redCopia.listaCapas[0].SetPrimera(dato);
+    for(int i = 0; i < redCopia.capas-1; i++){
+        for(int j = 0; j < redCopia.neuronas[i]; j++){
+            redCopia.listaCapas[i].listaNeuronas[j].AplicarCarga();
         }
     }
 }
