@@ -55,7 +55,7 @@ void Red::retroPropagacion(float error){
     }
 }
 
-float calcularError(vector<float> datosObtenidos , vector<float> datosEsperados){
+float Red::calcularError(vector<float> datosObtenidos , vector<float> datosEsperados){
     float rsl;
     if(datosEsperados.size() == datosObtenidos.size()){
         for(int i = 0; i < datosEsperados.size() ; i++){
