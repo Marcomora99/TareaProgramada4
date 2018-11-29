@@ -30,16 +30,38 @@ Red::Red(int cntCapas, vector<int> nNeuronas)
     }
 }
 
-void Red::pensar(float dato, Red original) {
-    Red redCopia = original;
-    redCopia.listaCapas[0].SetPrimera(dato);
-    for(int i = 0; i < redCopia.capas-1; i++){
-        for(int j = 0; j < redCopia.neuronas[i]; j++){
-            redCopia.listaCapas[i].listaNeuronas[j].AplicarCarga();
+vector<float> Red::pensar(float dato, Red* original) {
+    vector<float> rsl;
+    Red* redCopia = original;
+    redCopia->listaCapas[0].SetPrimera(dato);
+    for(int i = 0; i < redCopia->capas - 1; i++){
+        for(int j = 0; j < redCopia->neuronas[i]; j++){
+            redCopia->listaCapas[i].listaNeuronas[j].AplicarCarga();
+        }
+    }
+    for(int i = 0; i < redCopia->neuronas[redCopia->capas - 1]; i++){
+        rsl.push_back(redCopia->listaCapas[redCopia->capas - 1].listaNeuronas[i].GetCarga());
+    }
+    return rsl;
+}
+
+void Red::retroPropagacion(float error){
+    for(int i = 0; i < capas - 1; i++){
+        for(int j = 0; j < neuronas[i]; j++){
+            int cargaNueva = listaCapas[i].listaNeuronas[j].GetCarga();
+            cargaNueva -= error;
+            listaCapas[i].listaNeuronas[j].setCarga(cargaNueva);
         }
     }
 }
 
-void Red::retropropagacion(float error){
-
+float calcularError(vector<float> datosObtenidos , vector<float> datosEsperados){
+    float rsl;
+    if(datosEsperados.size() == datosObtenidos.size()){
+        for(int i = 0; i < datosEsperados.size() ; i++){
+            rsl += datosEsperados[i] - datosObtenidos[i];
+        }
+    }
+    rsl = rsl/datosEsperados.size();
+    return rsl;
 }

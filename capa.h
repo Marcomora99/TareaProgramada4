@@ -14,7 +14,6 @@ public:
     Capa(int cntNeuronas);
     vector< Neurona > GetListaNeuronas(){return listaNeuronas;}
     void SetPrimera(float dato){listaNeuronas[0].setCarga(dato);}
-    //void AgregarNeurona(Neurona n){}; CREO QUE NO SE VA A OCUPAR
 };
 
 #endif // CAPA_H

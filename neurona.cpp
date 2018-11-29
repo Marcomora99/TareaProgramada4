@@ -26,7 +26,7 @@ void Neurona::AgregarConexion(Neurona* nNeurona, float peso)
 void Neurona::AplicarCarga(){
     if(carga >= umbral) {
         for(int i = 0; i < listaConexiones.size();i++){
-            listaConexiones[i].neuronaReceptora->setCarga((carga-listaConexiones[i].neuronaReceptora->GetCarga())+listaConexiones[i].GetPeso());
+            listaConexiones[i].neuronaReceptora->setCarga((pow(carga,listaConexiones[i].neuronaReceptora->GetCarga())*listaConexiones[i].GetPeso()));
         }
         ;
     }

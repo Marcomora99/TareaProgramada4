@@ -2,6 +2,7 @@
 #define NEURONA_H
 
 #include <vector>
+#include <cmath>
 #include "conexion.h"
 using namespace std;
 

@@ -14,9 +14,9 @@ public:
 //public: por el momento para poder visualizar la red
     Red(int cntCapas, vector<int> nNeuronas);
     vector< Capa > GetListaCapas(){return listaCapas;}
-    //void AgregarCapa(int cntNeuronas); CREO QUE NO SE VA A OCUPAR
-    void pensar(float dato, Red original);
-    void retropropagacion(float error);
+    vector<float> pensar(float dato, Red* original);
+    void retroPropagacion(float error);
+    float calcularError(vector<float> datosObtenidos , vector<float> datosEsperados);
 };
 
 #endif // RED_H
